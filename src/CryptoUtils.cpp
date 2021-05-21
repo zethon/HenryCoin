@@ -28,6 +28,17 @@ std::string SHA256(std::string_view data)
     return digest;
 }
 
+CryptoPP::Integer SHA256Int(std::string_view data)
+{
+    CryptoPP::SHA256 hash;
+    CryptoPP::byte digest[CryptoPP::SHA256::DIGESTSIZE];
+
+    auto ptr = reinterpret_cast<const CryptoPP::byte*>(data.data());
+    hash.CalculateDigest(digest, ptr, data.size());
+
+    return CryptoPP::Integer{ digest, CryptoPP::SHA256::DIGESTSIZE };
+}
+
 // sha256 of a hex string
 std::string SHA256HexString(std::string_view data)
 {

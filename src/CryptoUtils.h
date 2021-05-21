@@ -23,6 +23,7 @@ namespace crypto
 
 // SHA256 of generic data
 std::string SHA256(std::string_view data);
+CryptoPP::Integer SHA256Int(std::string_view data);
 
 // given a hex string private key this returns the 
 // "04" prepended uncompressed public key

@@ -40,3 +40,4 @@ set(ASH_FILES
 
 create_test("blockchain" "${ASH_FILES}")
 create_test("crypto" "${ASH_FILES}")
+create_test("merkleroot" "${ASH_FILES}")
